@@ -1,6 +1,21 @@
 $("#begin").click(function () {
     this.style.visibility = "hidden";
 })
+let correct = 0;
+let incorrect = 0;
+let question = null;
+let guess = null;
+let correctAnswer = null;
+
+let score = function() {
+    if (guess == correctAnswer) {
+        correct += 1;
+        alert('correct');
+    }  else {
+        incorrect += 1;
+        alert('incorrect');
+    }
+};
 
 async function getFuturamaQs(e) {
     e.preventDefault();
