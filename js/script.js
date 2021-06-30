@@ -5,9 +5,18 @@ async function getFuturamaQs(e) {
 
     const response = await fetch(url);
     const data = await response.json();
-
+   
     console.log(data);
     
+    for (let i=0; i < data.length; i++) {
+        // let question = data[i].question;
+        // let possibleAnswers = data[i].possibleAnswers;
+        // let correctAnswer = data[i].correctAnswer;
+        $('#question').html(data[i].question);
+        $('#possibleAnswers').html(data[i].possibleAnswers);
+    }
+
 }
 
-$("button").on("click", getFuturamaQs);
+$('button').on('click', getFuturamaQs);
+
