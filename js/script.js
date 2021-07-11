@@ -15,11 +15,15 @@
    
     console.log(data);
 
-    let correct = 0;
-    let incorrect = 0;
-    let questionCount = 0;
-    let previousQuestions = [];
-    let correctAnswer = ' ';
+    const gameStats = { 
+        correct: 0,
+        incorrect: 0,
+        questionCount: 0,
+        previousQuestions: [],
+        correctAnswer: ' ',
+        correctResponses: [],
+        incorrectResponses: [],
+    };
     
     function displayNewQuestion() {
         let randomIndex = randNum();
@@ -35,14 +39,20 @@
 
     
         $('.answer').on('click', function (e) {
-            previousQuestions.push(randomIndex);
-            console.log(previousQuestions);
+            e.preventDefault();
+            gameStats.previousQuestions.push(randomIndex);
+            console.log(gameStats.previousQuestions);
             console.log($(e.target).text());
-            correctAnswer = data[randomIndex].correctAnswer;
-            console.log(correctAnswer);
+            gameStats.correctAnswer = data[randomIndex].correctAnswer;
+            console.log(gameStats.correctAnswer);
             let guess = $(e.target).text();
-            if (guess === correctAnswer) {
-                alert('how did you know that? did you not have a life when you were younger?');
+            gameStats.questionCount++;
+            console.log(gameStats.questionCount);if (guess === gameStats.correctAnswer) {
+                gameStats.correct++;
+                console.log(gameStats.correct); alert('how did you know that? did you not have a life when you were younger?');
+            } else {
+                gameStats.incorrect++;
+                console.log(gameStats.incorrect);alert('no wonder bender always said, "kill all humans!');
             }
         })    
     }
