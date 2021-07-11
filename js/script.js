@@ -18,21 +18,25 @@
     let correct = 0;
     let incorrect = 0;
     let questionCount = 0;
+    let previousQuestions = [];
+    let correctAnswer = ' ';
     
     function displayNewQuestion() {
         let randomIndex = randNum();
         let question = data[randomIndex];
-        let previousQuestions = [];
+
 
         $('#question').html(data[randomIndex].question);
         
         question.possibleAnswers.forEach(answer => {
-            $('#possibleAnswers').append(`<button id='answer'>${answer}</button>`);
+            $('#possibleAnswers').append(`<button class='answer'>${answer}</button>`);
         })
+
+
     
-        $('#possibleAnswers').on('click', function (e) {
-            $('#question').push(previousQuestions);
-            console.log(question);
+        $('.answer').on('click', function (e) {
+            previousQuestions.push(randomIndex);
+            console.log(previousQuestions);
         })    
     }
 
