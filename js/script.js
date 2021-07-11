@@ -37,6 +37,13 @@
         $('.answer').on('click', function (e) {
             previousQuestions.push(randomIndex);
             console.log(previousQuestions);
+            console.log($(e.target).text());
+            correctAnswer = data[randomIndex].correctAnswer;
+            console.log(correctAnswer);
+            let guess = $(e.target).text();
+            if (guess === correctAnswer) {
+                alert('how did you know that? did you not have a life when you were younger?');
+            }
         })    
     }
 
