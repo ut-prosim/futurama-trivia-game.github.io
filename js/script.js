@@ -45,10 +45,12 @@
             if (guess == gameStats.correctAnswer) {
                 gameStats.correct++;
                 alert(gameStats.correctResponses[randomResponse]);
+                alert(`number of questions answered right: ${gameStats.correct}`);
                 displayNewQuestion();
             } else {
                 gameStats.incorrect++;
                 alert(gameStats.incorrectResponses[randomResponse]);
+                alert(`number of questions answered wrong: ${gameStats.incorrect}`);
                 displayNewQuestion();
             }
         })    
