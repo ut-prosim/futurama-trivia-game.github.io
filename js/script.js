@@ -69,10 +69,11 @@
     }
 
 
-
+    // random munber generator for questions
     function randNum() {
         return Math.floor(Math.random() * 28);
     }
+    // random number generator for response to correct/incorrect answers
     function randNum1() {
         return Math.floor(Math.random() * gameStats.correctResponses.length);
     }
