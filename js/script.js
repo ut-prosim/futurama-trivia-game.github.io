@@ -4,7 +4,9 @@
         displayNewQuestion();
     });
    
+    // rules to the game, clearly spelled out
     alert("this is a trivia game about the television show 'futurama.' you will be asked ten (10) questions. click one of the buttons under the question as your guess to the question. if you get three (3) questions wrong, you lose. if, after having answered ten (10) questions, you have gotten two (2) or fewer questions incorrect, you win!");
+    
     alert('welcome to the world of tomorrow! ...ahem, also known as the 31st century!');
 
     const url = `https://api.sampleapis.com/futurama/questions`;
@@ -28,32 +30,42 @@
         let question = data[randomIndex];
         let randomResponse = randNum1();
 
-        $('#question').html(data[randomIndex].question);
-        $('#possibleAnswers').empty();
-        question.possibleAnswers.forEach(answer => {
-            $('#possibleAnswers').append(`<button class='answer'>${answer}</button>`);
-        })
+        if (gameStats.incorrect < 3) {
+
+            if (gameStats.questionCount < 10) {
+
+                $('#question').html(data[randomIndex].question);
+                $('#possibleAnswers').empty();
+                question.possibleAnswers.forEach(answer => {
+                    $('#possibleAnswers').append(`<button class='answer'>${answer}</button>`);
+                })
 
 
-    
-        $('.answer').on('click', function (e) {
-            e.preventDefault();
-            gameStats.correctAnswer = data[randomIndex].correctAnswer;
-            gameStats.previousQuestions.push(randomIndex);
-            let guess = $(e.target).text();
-            gameStats.questionCount++;
-            if (guess == gameStats.correctAnswer) {
-                gameStats.correct++;
-                alert(gameStats.correctResponses[randomResponse]);
-                alert(`number of questions answered right: ${gameStats.correct}`);
-                displayNewQuestion();
+            
+                $('.answer').on('click', function (e) {
+                    e.preventDefault();
+                    gameStats.correctAnswer = data[randomIndex].correctAnswer;
+                    gameStats.previousQuestions.push(randomIndex);
+                    let guess = $(e.target).text();
+                    gameStats.questionCount++;
+                    if (guess == gameStats.correctAnswer) {
+                        gameStats.correct++;
+                        alert(gameStats.correctResponses[randomResponse]);
+                        alert(`number of questions answered right: ${gameStats.correct}`);
+                        displayNewQuestion();
+                    } else {
+                        gameStats.incorrect++;
+                        alert(gameStats.incorrectResponses[randomResponse]);
+                        alert(`number of questions answered wrong: ${gameStats.incorrect}`);
+                        displayNewQuestion();
+                    }
+                }) 
             } else {
-                gameStats.incorrect++;
-                alert(gameStats.incorrectResponses[randomResponse]);
-                alert(`number of questions answered wrong: ${gameStats.incorrect}`);
-                displayNewQuestion();
-            }
-        })    
+                alert('you win! djambi, get the chocolate!');   
+            }       
+        } else {
+            alert('you lose! all glory to the hypnotoad!');
+        } 
     }
 
 
