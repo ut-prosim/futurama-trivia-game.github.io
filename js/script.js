@@ -4,7 +4,7 @@
         displayNewQuestion();
     });
    
-
+    alert("this is a trivia game about the television show 'futurama.' you will be asked ten (10) questions. click one of the buttons under the question as your guess to the question. if you get three (3) questions wrong, you lose. if, after having answered ten (10) questions, you have gotten two (2) or fewer questions incorrect, you win!");
     alert('welcome to the world of tomorrow! ...ahem, also known as the 31st century!');
 
     const url = `https://api.sampleapis.com/futurama/questions`;

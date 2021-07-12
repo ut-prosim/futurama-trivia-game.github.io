@@ -1,5 +1,9 @@
 <html lang="en">
   <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Unicase:wght@300&display=swap" rel="stylesheet">
+
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,16 +17,16 @@
     <title>futurama trivia game!</title>
     </head>
     <body>
-        <div><h1>welcome to the futurama trivia game!</h1></div>
+        <div><h1><span>welcome to the futurama trivia game!</span></h1></div>
         <button id='begin'>play the game</button>
         <br>
         <br>
         <br>
         <div class='questions'><dl>
-            <dt>question</dt>
-            <dd id='question'></dd>
-            <dt>take a guess</dt>
-            <dd id='possibleAnswers'></dd>
+            <dt><span>question:</span></dt>
+            <dd id='question'><span></span></dd>
+            <dt id='lower'><span>select the correct answer:</span></dt>
+            <dd id='possibleAnswers'><span></span></dd>
         </dl>
       </div>
     </body>

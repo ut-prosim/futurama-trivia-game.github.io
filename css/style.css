@@ -1,8 +1,15 @@
 body {
+    font-family: 'Cormorant Unicase', serif;
+    font-size: 25px;
     text-align: center;
     background-color: gray;
     background-image: url(https://i.imgur.com/A3hY8KQ.jpeg);
-    background-size: 100vmax;
+    background-size: cover;
+}
+
+#begin {
+    font-family: 'Cormorant Unicase', serif;
+    font-size: 20px;
 }
 
 h1 {
@@ -10,10 +17,15 @@ h1 {
     padding-inline: 30px;
 }
 
-div {
+.answer {
+    font-family: 'Cormorant Unicase', serif;
+    font-size: 25px;
+}
+
+#question {
     background-color: azure;
 }
 
-.questions {
-    flex-direction: column;
+span {
+    background-color: azure;
 }
